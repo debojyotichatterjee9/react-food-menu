@@ -20,7 +20,7 @@ const ModalOverlay = props => {
     )
 }
 
-const fetchPortalElement = document.querySelector("#overlays";
+const fetchPortalElement = document.querySelector("#overlays");
 }
 const Modal = props => {
     return(
