@@ -1,12 +1,28 @@
 import React, { useContext } from "react";
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
+import CartItem from "./CartItem"
 import CartContext from "../../store/cart-context"
 
 const Cart = props => {
 
     const ctxObj = useContext(CartContext);
-    const cartItems = ctxObj.items.map(item => <li key={item.id}>{item.name}</li>);
+
+    const cartItemRemoveHandler = id => {
+
+    }
+
+    const cartItemAddHandler = item => {
+        
+    }
+
+    const cartItems = ctxObj.items.map(item => <CartItem
+        key={item.id}
+        name={item.name}
+        quantity={item.quantity}
+        price={item.price} 
+        onAdd={cartItemAddHandler.bind(null, item.id)}
+        onRemove={cartItemRemoveHandler.bind(item)}/>);
     const totalAmount = `$${ctxObj.totalAmount.toFixed(2)}`;
     return (
         <Modal onBackdropClick={props.onClose}>
