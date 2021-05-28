@@ -15,7 +15,7 @@ function App() {
   }
   return (
     <React.Fragment>
-      {cartModalFlag && <Cart />}
+      {cartModalFlag && <Cart onClose={hideCartHandler}/>}
       <Header onCartClick={showCartHandler}/>
       <main>
         <Meals />
