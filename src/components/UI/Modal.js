@@ -24,10 +24,10 @@ const fetchPortalElement = document.querySelector("#overlays");
 
 const Modal = props => {
     return(
-        <react.Fragment>
+        <React.Fragment>
             {ReactDOM.createPortal(<Backdrop />, fetchPortalElement)}
             {ReactDOM.createPortal(<ModalOverlay>{props.children}</ModalOverlay>, fetchPortalElement)}
-        </react.Fragment>
+        </React.Fragment>
     )
 }
 
