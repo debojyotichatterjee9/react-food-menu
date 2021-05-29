@@ -9,11 +9,11 @@ const Cart = props => {
     const ctxObj = useContext(CartContext);
 
     const cartItemRemoveHandler = id => {
-
+        ctxObj.removeItem(id);
     }
 
     const cartItemAddHandler = item => {
-        
+        ctxObj.addItem({...item, quantity: 1});
     }
 
     const cartItems = ctxObj.items.map(item => <CartItem
@@ -21,8 +21,8 @@ const Cart = props => {
         name={item.name}
         quantity={item.quantity}
         price={item.price} 
-        onAdd={cartItemAddHandler.bind(null, item.id)}
-        onRemove={cartItemRemoveHandler.bind(item)}/>);
+        onAdd={cartItemAddHandler.bind(null, item)}
+        onRemove={cartItemRemoveHandler.bind(null, item.id)}/>);
     const totalAmount = `$${ctxObj.totalAmount.toFixed(2)}`;
     return (
         <Modal onBackdropClick={props.onClose}>
